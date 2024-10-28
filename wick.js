@@ -69,28 +69,6 @@
         }
     };
 
-    // The maths functionality (to count and show word occurrences and positions)
-    wick.maths = function(selector) {
-        const uiInstance = wick(selector, 'words');
-
-        uiInstance.on('click', function() {
-            const clickedWord = this.textContent.trim();
-            const allWords = Array.from(document.querySelectorAll(selector + ' .word'));
-
-            // Count occurrences
-            const wordCount = allWords.filter(word => word.textContent.trim() === clickedWord).length;
-
-            // Find the position of the clicked word
-            const wordIndex = allWords.indexOf(this) + 1; // Human-readable index (starting from 1)
-
-            // Display the count and position
-            wick.showCount(clickedWord, wordCount);
-            wick.showPosition(wordIndex);
-        });
-
-        return uiInstance;
-    };
-
     wick.fn.init.prototype = wick.fn;
     wick.fn.initWords.prototype = wick.fn;
 
